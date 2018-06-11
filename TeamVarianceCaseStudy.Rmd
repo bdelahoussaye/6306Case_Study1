@@ -1,0 +1,61 @@
+---
+title: "Team Variance Case Study One"
+author(s): "Terry Johnson, Brandon DeLa Houssaya, Justin, Steven Cocke"
+date: "6/10/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Case Study One (1)
+
+## How many breweries are present in each State?
+```{r Step_1, echo=TRUE}
+# Total by state the number of breweries
+```
+
+## Merge beer data with the breweries data.  Print the first 6 observations
+## and the last 6 observation to check the merged data
+
+```{r step_2, echo=TRUE}
+# Merge Data and then head(6), then tail(6)
+```
+
+## Report the number of NA's in each column
+
+```{r step_3, echo=TRUE}
+# Count NA's by column
+```
+
+
+## Compute the median alcohol content and international bitterness unit for 
+## each state.  Plot a bar chart to compare.
+```{r step_4, echo=TRUE}
+# Compute Median Alcohol
+# Compute IBU
+# Bar Chart by state
+```
+
+
+## Which State has the maximum alcoholic (ABV) beer? 
+## Which state has the most IBU Beer?
+```{r step_5, echo=TRUE}
+# Max ABV by state
+# Max IBU by state
+```
+
+## Summary Statistics for the ABV variable.
+```{r step_6, echo=TRUE}
+# Summary ABV
+```
+
+
+## Is there an apparent relationship between the bitterness of the beer 
+## and it's alcoholic content?  
+## Draw a scatter plot
+```{r step_7, echo=TRUE}
+# Relationship
+# Scatter Plot
+```
