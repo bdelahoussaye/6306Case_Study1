@@ -69,6 +69,3 @@ tail(BeerBreweries,6)
 ```
 
 
-###testing committ
-
-#### testing directly from RStudio
