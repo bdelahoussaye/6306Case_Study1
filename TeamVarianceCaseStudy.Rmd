@@ -1,0 +1,82 @@
+---
+title: "Team Variance Case Study One"
+author(s): "Terry Johnson, Brandon de la Houssaya, Justin Castro, Steven Cocke"
+date: "6/10/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Case Study One (1)
+
+## How many breweries are present in each State?
+```{r Step_1, echo=TRUE}
+# Total by state the number of breweries
+breweries <- read.csv("breweries.csv", header  = TRUE)
+aggregate( rep(1,dim(breweries)[1]), by=list(breweries$State), sum)
+```
+
+## Merge beer data with the breweries data.  Print the first 6
+## observations and the last 6 observation to check the merged 
+## data
+
+```{r step_2, echo=TRUE}
+# Merge Data and then head(6), then tail(6)
+Beer <- read.csv(file="Beers.csv", header=TRUE, sep=",")
+Breweries <-read.csv(file="Breweries.csv", header=TRUE, sep=",")
+
+BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=TRUE)
+tail(BeerBreweries,6)
+```
+
+## Report the number of NA's in each column
+
+```{r step_3, echo=TRUE}
+sum(is.na(BeerBreweries$Brewery_id))
+sum(is.na(BeerBreweries$Name.x))
+sum(is.na(BeerBreweries$Beer_ID))
+sum(is.na(BeerBreweries$ABV))
+sum(is.na(BeerBreweries$IBU))
+sum(is.na(BeerBreweries$Style))
+sum(is.na(BeerBreweries$Ounces))
+sum(is.na(BeerBreweries$Name.y))
+sum(is.na(BeerBreweries$City))
+sum(is.na(BeerBreweries$State))
+
+```
+
+
+## Compute the median alcohol content and international 
+## bitterness unit for each state.  Plot a bar chart to compare.
+```{r step_4, echo=TRUE}
+BeerBreweriesDF <-na.omit(BeerBreweries)
+ByState <- aggregate(BeerBreweriesDF[,4:5], list(BeerBreweriesDF$State), median)
+barplot(ByState[,2], beside = TRUE, names.arg = ByState$Group.1,xlab="ABV", main = "Median ABV by State", ylab = "State")
+barplot(ByState[,3], beside = TRUE, names.arg = ByState$Group.1,xlab="IBU", main = "Median IBU by State", ylab = "State")
+```
+
+
+## Which State has the maximum alcoholic (ABV) beer? 
+## Which state has the most IBU Beer?
+```{r step_5, echo=TRUE}
+# Max ABV by state
+# Max IBU by state
+```
+
+## Summary Statistics for the ABV variable.
+```{r step_6, echo=TRUE}
+# Summary ABV
+```
+
+
+## Is there an apparent relationship between the 
+## bitterness of the beer and it's alcoholic content?  
+## Draw a scatter plot
+```{r step_7, echo=TRUE}
+# Relationship
+# Scatter Plot
+```
+
+
