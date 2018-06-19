@@ -51,8 +51,8 @@ sum(is.na(BeerBreweries$State))
 ## Compute the median alcohol content and international 
 ## bitterness unit for each state.  Plot a bar chart to compare.
 ```{r step_4, echo=TRUE}
-ByState <- aggregate(BeerBreweries[,4:5], list(BeerBreweries$State), median)
-
+BeerBreweriesDF <-na.omit(BeerBreweries)
+ByState <- aggregate(BeerBreweriesDF[,4:5], list(BeerBreweriesDF$State), median)
 
 # Bar Chart by state
 ```
