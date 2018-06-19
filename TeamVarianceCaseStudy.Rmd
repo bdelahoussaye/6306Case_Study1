@@ -53,8 +53,8 @@ sum(is.na(BeerBreweries$State))
 ```{r step_4, echo=TRUE}
 BeerBreweriesDF <-na.omit(BeerBreweries)
 ByState <- aggregate(BeerBreweriesDF[,4:5], list(BeerBreweriesDF$State), median)
-
-# Bar Chart by state
+barplot(ByState[,2], beside = TRUE, names.arg = ByState$Group.1,xlab="ABV", main = "Median ABV by State", ylab = "State")
+barplot(ByState[,3], beside = TRUE, names.arg = ByState$Group.1,xlab="IBU", main = "Median IBU by State", ylab = "State")
 ```
 
 
