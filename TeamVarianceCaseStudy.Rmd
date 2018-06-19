@@ -34,15 +34,26 @@ tail(BeerBreweries,6)
 ## Report the number of NA's in each column
 
 ```{r step_3, echo=TRUE}
-# Count NA's by column
+sum(is.na(BeerBreweries$Brewery_id))
+sum(is.na(BeerBreweries$Name.x))
+sum(is.na(BeerBreweries$Beer_ID))
+sum(is.na(BeerBreweries$ABV))
+sum(is.na(BeerBreweries$IBU))
+sum(is.na(BeerBreweries$Style))
+sum(is.na(BeerBreweries$Ounces))
+sum(is.na(BeerBreweries$Name.y))
+sum(is.na(BeerBreweries$City))
+sum(is.na(BeerBreweries$State))
+
 ```
 
 
 ## Compute the median alcohol content and international 
 ## bitterness unit for each state.  Plot a bar chart to compare.
 ```{r step_4, echo=TRUE}
-# Compute Median Alcohol
-# Compute IBU
+ByState <- aggregate(BeerBreweries[,4:5], list(BeerBreweries$State), median)
+
+
 # Bar Chart by state
 ```
 
