@@ -5,6 +5,12 @@ Breweries <-read.csv(file="/Users/stevencocke/Downloads/CaseStudy_2_2_2/Brewerie
 ##Merge the files and assign to variable
 BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=TRUE)
 
+##Check out the first 6 rows
+head(BeerBreweries,6)
+
+##Check out the last 6 rows
+tail(BeerBreweries,6)
+
 ##Write to a csv
 write.csv(BeerBreweries, "/Users/stevencocke/Desktop/6306Case_Study1/BeerBreweries.csv", row.names=FALSE)
 
