@@ -13,9 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## How many breweries are present in each State?
 ```{r Step_1, echo=TRUE}
-# Total by state the number of breweries
+#Total Breweries by state
+# Read in the breweries data
 breweries <- read.csv("breweries.csv", header  = TRUE)
-aggregate( rep(1,dim(breweries)[1]), by=list(breweries$State), sum)
+# compile the number by state using the aggregate function in R
+breweries.by.State <- aggregate( rep(1,dim(breweries)[1]), by=list(breweries$State), sum)
+# Update the column names to something more meaningful
+colnames(breweries.by.State) <- c("State","Number")
+# Sort by state from largest to smallest number of breweries
+sortedBreweriesByState <- breweries.by.State[order(breweries.by.State$Number, decreasing = TRUE),]
+# Display the Breweries by States in descending order
+sortedBreweriesByState
 ```
 
 ## Merge beer data with the breweries data.  Print the first 6
@@ -28,6 +36,10 @@ Beer <- read.csv(file="Beers.csv", header=TRUE, sep=",")
 Breweries <-read.csv(file="Breweries.csv", header=TRUE, sep=",")
 
 BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=TRUE)
+colnames(BeerBreweries) <- c("Brewery_ID","Beer","Beer_ID","ABV","IBU","Style","Ounces","Brewery","City","State")
+# First 6 Merged Beer and Breweries
+head(BeerBreweries,6)
+# Last 6 Merged Beer and Breweries
 tail(BeerBreweries,6)
 ```
 
@@ -44,7 +56,6 @@ sum(is.na(BeerBreweries$Ounces))
 sum(is.na(BeerBreweries$Name.y))
 sum(is.na(BeerBreweries$City))
 sum(is.na(BeerBreweries$State))
-
 ```
 
 
