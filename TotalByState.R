@@ -22,4 +22,4 @@ sortedBreweriesByState <- breweries.by.State[order(breweries.by.State$Number, de
 # Display the Breweries by States in descending order top 6
 head(sortedBreweriesByState,6)
 # DIsplay as BarChart for easier viewing of a large data set
-barplot(sortedBreweriesByState[,2], beside = TRUE, names.arg = sortedBreweriesByState$State,ylab="# Breweries", main = "Brweries By State", xlab = "State")
+barplot(sortedBreweriesByState[,2], beside = TRUE, names.arg = sortedBreweriesByState$State,ylab="# Breweries", main = "Brweries By State", xlab = "State", ylim=c(0,50))

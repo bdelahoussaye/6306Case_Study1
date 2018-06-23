@@ -1,7 +1,7 @@
 ---
 title: "Team Variance Case Study One"
 author(s): "Terry Johnson, Brandon de la Houssaya, Justin Castro, Steven Cocke"
-date: "6/10/2018"
+date: "6/23/2018"
 output: html_document
 ---
 
@@ -25,7 +25,7 @@ sortedBreweriesByState <- breweries.by.State[order(breweries.by.State$Number, de
 # Display the Breweries by States in descending order top 6
 head(sortedBreweriesByState,6)
 # DIsplay as BarChart for easier viewing of a large data set
-barplot(sortedBreweriesByState[,2], beside = TRUE, names.arg = sortedBreweriesByState$State,ylab="# Breweries", main = "Brweries By State", xlab = "State")
+barplot(sortedBreweriesByState[,2], beside = TRUE, names.arg = sortedBreweriesByState$State,ylab="# Breweries", main = "Brweries By State", xlab = "State",ylim=c(0,50),col="Blue")
 ```
 
 ## Merge beer data with the breweries data.  Print the first 6
@@ -89,7 +89,18 @@ barplot(ByState[,3], beside = TRUE, names.arg = ByState$Group.1,xlab="IBU", main
 ## Draw a scatter plot
 ```{r step_7, echo=TRUE}
 # Relationship
-# Scatter Plot
+# ScatterPlot
+library(ggplot2)
+# Read in the beers data
+Beer <- read.csv(file="Beers.csv", header=TRUE, sep=",")
+# Read in the breweries data
+Breweries <-read.csv(file="Breweries.csv", header=TRUE, sep=",")
+
+##Merge the files and assign to variable
+BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=TRUE)
+# Build Scatter plot
+attach(BeerBreweries)
+ggplot(BeerBreweries, aes(x=ABV, y=IBU, color=Beer_ID)) + geom_point(shape=1)
 ```
 
 
