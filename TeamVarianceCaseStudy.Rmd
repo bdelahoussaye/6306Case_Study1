@@ -48,15 +48,25 @@ tail(BeerBreweries,6)
 ## Report the number of NA's in each column
 
 ```{r step_3, echo=TRUE}
+# Number of N/A's in the Brewery_id Column
 sum(is.na(BeerBreweries$Brewery_id))
+# Number of N/A's in the Name.x Column
 sum(is.na(BeerBreweries$Name.x))
+# Number of N/A's in the Beer_id Column
 sum(is.na(BeerBreweries$Beer_ID))
+# Number of N/A's in the ABV Column
 sum(is.na(BeerBreweries$ABV))
+# Number of N/A's in the IBU Column
 sum(is.na(BeerBreweries$IBU))
+# Number of N/A's in the Syle Column
 sum(is.na(BeerBreweries$Style))
+# Number of N/A's in the Ounces Column
 sum(is.na(BeerBreweries$Ounces))
+# Number of N/A's in the Name.y Column
 sum(is.na(BeerBreweries$Name.y))
+# Number of N/A's in the City Column
 sum(is.na(BeerBreweries$City))
+# Number of N/A's in the State Column
 sum(is.na(BeerBreweries$State))
 ```
 
