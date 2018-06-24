@@ -1,8 +1,8 @@
 ---
-title: "Team Variance Case Study One"
-author(s): "Terry Johnson, Brandon de la Houssaya, Justin Castro, Steven Cocke"
-date: "6/23/2018"
-output: html_document
+Title: "Team Variance Case Study One"
+Author(s): "Brandon de la Houssaya, Steven Cocke, Terry Johnson"
+Date: "6/23/2018"
+Output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -47,27 +47,28 @@ tail(BeerBreweries,6)
 
 ## Report the number of NA's in each column
 
-```{r step_3, echo=TRUE}
+```{r step_3, echo=FALSE}
+attach(BeerBreweries)
 # Number of N/A's in the Brewery_id Column
-sum(is.na(BeerBreweries$Brewery_id))
+message("Number of NA's in Brewery ID Column: ", sum(is.na(Brewery_ID)))
 # Number of N/A's in the Name.x Column
-sum(is.na(BeerBreweries$Name.x))
+message("Number of NA's in Beer Name Column: ", sum(is.na(Beer)))
 # Number of N/A's in the Beer_id Column
-sum(is.na(BeerBreweries$Beer_ID))
+message("Number of NA's in Beer ID Column: ", sum(is.na(Beer_ID)))
 # Number of N/A's in the ABV Column
-sum(is.na(BeerBreweries$ABV))
+message("Number of NA's in ABV Column: ", sum(is.na(ABV)))
 # Number of N/A's in the IBU Column
-sum(is.na(BeerBreweries$IBU))
+message("Number of NA's in IBU Column: ", sum(is.na(IBU)))
 # Number of N/A's in the Syle Column
-sum(is.na(BeerBreweries$Style))
+message("Number of NA's in Style Column: ", sum(is.na(Style)))
 # Number of N/A's in the Ounces Column
-sum(is.na(BeerBreweries$Ounces))
+message("Number of NA's in Ounces Column: ", sum(is.na(Ounces)))
 # Number of N/A's in the Name.y Column
-sum(is.na(BeerBreweries$Name.y))
+message("Number of NA's in Brewer name Column: ", sum(is.na(Brewery)))
 # Number of N/A's in the City Column
-sum(is.na(BeerBreweries$City))
+message("Number of NA's in City Column: ", sum(is.na(City)))
 # Number of N/A's in the State Column
-sum(is.na(BeerBreweries$State))
+message("Number of NA's in State Column: ", sum(is.na(State)))
 ```
 
 
@@ -112,5 +113,20 @@ BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=T
 attach(BeerBreweries)
 ggplot(BeerBreweries, aes(x=ABV, y=IBU, color=Beer_ID)) + geom_point(shape=1)
 ```
+
+
+## Hops were first introduced into the Beer making process in 1150-1160 AD to add as a preservative. 
+
+####“[The hop plant] is warm and dry, and has moderate moisture, and is not very useful in benefiting man, because it makes melancholy grow in man and makes the soul of man sad, and weighs down his inner organs. But yet, as a result of its own bitterness it keeps some putrefactions from drinks, to which it may be added, so that they may last so much longer (1)(2).  
+
+“A short history of hops” — http://zythophile.wordpress.com/2009/11/20/a-short-history-of-hops/
+
+##So, my starting assumption would be that the lower the alcohol would thus have the highest Hops Level, since Alcohol is a preservative as well.  However, the Scatter Plot shows the opposite. That the higher the alcohol, the higher the Hops content.  But after continuing the research on the use of hops in modern beer making i found that there an actual Hops/Malt ratio that to conteract the sweetness of the malt used in beer (Sweetness) that there is a particular ratio of Hops to be used. This is what is reflected in the scatter gram is this ratio of increased alcohol correlates to the increase in hops (IBU).  For a full explanation see the following website:
+
+Balancing your Beer with the Bitterness Ratio - "http://beersmith.com/blog/2009/09/26/balancing-your-beer-with-the-bitterness-ratio/"
+
+
+######1. A myth states that the original writing, by the Abbess Hildegarde of Bingen is from 1079 AD. She wasn’t born until 1098. She did write about hops first in her “Physica Sacra”, written between 1150–1160. American beer writer John P Arnold did try to dispell the myth as far back as 1911, but to no avail. http://en.wikipedia.org/wiki/Hildegard_of_Bingen http://zythophile.wordpress.com/false-ale-quotes/six-more-myths-about-hops/
+######2. “A short history of hops” — http://zythophile.wordpress.com/2009/11/20/a-short-history-of-hops/
 
 

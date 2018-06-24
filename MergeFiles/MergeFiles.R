@@ -1,3 +1,13 @@
+######################################################################
+# Merge the Beer and Breweries into a single dataframe with proper
+# column Names
+# Writen for Doing Data Science MidTerm  Summer 2018
+# Author(s): "Brandon de la Houssaya, Steven Cocke, Terry Johnson"
+# Input files are "breweries.csv" and "beers.csv"
+#
+# Updated Log
+# 6/23/2018    SC  Initial
+#####################################################################
 ##Read in the Files
 Beer <- read.csv(file="/Users/stevencocke/Downloads/CaseStudy_2_2_2/Beers.csv", header=TRUE, sep=",")
 Breweries <-read.csv(file="/Users/stevencocke/Downloads/CaseStudy_2_2_2/Breweries.csv", header=TRUE, sep=",")

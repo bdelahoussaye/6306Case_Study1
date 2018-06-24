@@ -1,7 +1,7 @@
 ######################################################################
 # Bitterness Vs Alcohol Comparison
 # Writen for Doing Data Science MidTerm  Summer 2018
-# Authors: Terry Johnson, Brandon de la Houssaya, Steven Cocke
+# Author(s): "Brandon de la Houssaya, Steven Cocke, Terry Johnson"
 # Input files are "breweries.csv" and "beers.csv"
 #
 # 
