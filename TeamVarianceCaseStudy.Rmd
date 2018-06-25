@@ -1,8 +1,8 @@
 ---
-Title: "Team Variance Case Study One"
-Author(s): "Brandon de la Houssaya, Steven Cocke, Terry Johnson"
-Date: "6/23/2018"
+Author(s): Brandon de la Houssaya, Steven Cocke, Terry Johnson
+Date: 6/23/2018
 Output: html_document
+Title: Team Variance Case Study One
 ---
 
 ```{r setup, include=FALSE}
@@ -85,13 +85,17 @@ barplot(ByState[,3], beside = TRUE, names.arg = ByState$Group.1,xlab="IBU", main
 ## Which State has the maximum alcoholic (ABV) beer? 
 ## Which state has the most IBU Beer?
 ```{r step_5, echo=TRUE}
-# Max ABV by state
-# Max IBU by state
+# State with the max ABV
+BeerBreweries[which(BeerBreweries$ABV == max(BeerBreweries$ABV, na.rm=TRUE)),10]
+
+# State with the max IBU
+BeerBreweries[which(BeerBreweries$IBU == max(BeerBreweries$IBU, na.rm=TRUE)),10]
 ```
 
 ## Summary Statistics for the ABV variable.
 ```{r step_6, echo=TRUE}
 # Summary ABV
+summary(BeerBreweries$ABV)
 ```
 
 
