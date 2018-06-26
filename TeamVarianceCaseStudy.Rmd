@@ -116,6 +116,13 @@ BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=T
 # Build Scatter plot
 attach(BeerBreweries)
 ggplot(BeerBreweries, aes(x=ABV, y=IBU, color=Beer_ID)) + geom_point(shape=1)
+
+#Compare Light Beers to Dark Ales
+DarkAles <- BeerBreweries[BeerBreweries$Style == "English Brown Ale",]
+LightLagers <- BeerBreweries[BeerBreweries$Style == "Light Lager",]
+ComparedBeers <- merge(DarkAles,LightLagers,all=TRUE)
+attach(ComparedBeers)
+ggplot(ComparedBeers, aes(x=ABV, y=IBU, color=Style)) + geom_point(shape=1)
 ```
 
 
