@@ -116,13 +116,6 @@ BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=T
 # Build Scatter plot
 attach(BeerBreweries)
 ggplot(BeerBreweries, aes(x=ABV, y=IBU, color=Beer_ID)) + geom_point(shape=1)
-
-#Compare Light Beers to Dark Ales
-DarkAles <- BeerBreweries[BeerBreweries$Style == "English Brown Ale",]
-LightLagers <- BeerBreweries[BeerBreweries$Style == "Light Lager",]
-ComparedBeers <- merge(DarkAles,LightLagers,all=TRUE)
-attach(ComparedBeers)
-ggplot(ComparedBeers, aes(x=ABV, y=IBU, color=Style)) + geom_point(shape=1)
 ```
 
 
@@ -135,6 +128,29 @@ ggplot(ComparedBeers, aes(x=ABV, y=IBU, color=Style)) + geom_point(shape=1)
 ##So, my starting assumption would be that the lower the alcohol would thus have the highest Hops Level, since Alcohol is a preservative as well.  However, the Scatter Plot shows the opposite. That the higher the alcohol, the higher the Hops content.  But after continuing the research on the use of hops in modern beer making i found that there an actual Hops/Malt ratio that to conteract the sweetness of the malt used in beer (Sweetness) that there is a particular ratio of Hops to be used. This is what is reflected in the scatter gram is this ratio of increased alcohol correlates to the increase in hops (IBU).  For a full explanation see the following website:
 
 Balancing your Beer with the Bitterness Ratio - "http://beersmith.com/blog/2009/09/26/balancing-your-beer-with-the-bitterness-ratio/"
+
+##The final Scatter Plot below shows a clear separation between the two groups of beer types of dark vs light.
+
+```{r step_8, echo=TRUE}
+# Relationship
+# Dark Vs LIght ScatterPlot
+library(ggplot2)
+# Read in the beers data
+Beer <- read.csv(file="Beers.csv", header=TRUE, sep=",")
+# Read in the breweries data
+Breweries <-read.csv(file="Breweries.csv", header=TRUE, sep=",")
+
+##Merge the files and assign to variable
+BeerBreweries <- merge(Beer, Breweries, by.x="Brewery_id", by.y="Brew_ID", all=TRUE)
+
+#Compare Light Beers to Dark Ales
+DarkAles <- BeerBreweries[BeerBreweries$Style == "English Brown Ale",]
+LightLagers <- BeerBreweries[BeerBreweries$Style == "Light Lager",]
+ComparedBeers <- merge(DarkAles,LightLagers,all=TRUE)
+
+attach(ComparedBeers)
+ggplot(ComparedBeers, aes(x=ABV, y=IBU, color=Style)) + geom_point(shape=1)
+```
 
 
 ######1. A myth states that the original writing, by the Abbess Hildegarde of Bingen is from 1079 AD. She wasn’t born until 1098. She did write about hops first in her “Physica Sacra”, written between 1150–1160. American beer writer John P Arnold did try to dispell the myth as far back as 1911, but to no avail. http://en.wikipedia.org/wiki/Hildegard_of_Bingen http://zythophile.wordpress.com/false-ale-quotes/six-more-myths-about-hops/
